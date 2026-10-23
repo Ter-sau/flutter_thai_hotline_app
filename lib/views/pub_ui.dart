@@ -1,0 +1,186 @@
+// ignore_for_file: unnecessary_non_null_assertion, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:flutter/material.dart';
+
+class PubUi extends StatefulWidget {
+  const PubUi({ super.key });
+
+  @override
+  State<PubUi> createState() => _PubUiState();
+}
+
+class _PubUiState extends State<PubUi> {
+  @override
+  Widget build( BuildContext context ) {
+     return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(
+              vertical: 25.0 
+            ),
+            color: Colors.white,
+            child: Column(
+              children: [
+                Text(
+                  'สายด่วน\nสาธารณูปโภค',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    height: 1.2,
+                  ),
+                ),
+                SizedBox( 
+                  height: 20.0 
+                ),
+                Container(
+                  width: 180.0,
+                  height: 180.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.asset(
+                      'assets/images/pubutil/pub_0.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: ( context, error, stackTrace ) {
+                        return Container(
+                          color: Colors.grey,
+                          child: Icon(
+                            Icons.image,
+                            size: 60.0,
+                            color: Colors.grey,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.symmetric(
+                horizontal: 20.0, 
+                vertical: 10.0 
+              ),
+              children: [
+                _buildCard( 'ไฟฟ้านครหลวง', '1130', 'assets/images/pubutil/pub_1.png'),
+                _buildCard( 'ไฟฟ้าส่วนภูมิภาค', '1129', 'assets/images/pubutil/pub_2.png'),
+                _buildCard( 'ไฟฟ้าฝ่ายผลิต', '1416', 'assets/images/pubutil/pub_3.png'),
+                _buildCard( 'การประปานครหลวง', '1125', 'assets/images/pubutil/pub_4.png'),
+                _buildCard( 'การประปาส่วนภูมิภาค', '1662', 'assets/images/pubutil/pub_5.png'),
+                _buildCard( 'true', '1242', 'assets/images/pubutil/pub_6.png'),
+                _buildCard( 'dtac', '1678', 'assets/images/pubutil/pub_7.png'),
+                _buildCard( 'AIS', '1175', 'assets/images/pubutil/pub_8.png'),
+                _buildCard( 'TOT', '1100', 'assets/images/pubutil/pub_9.png'),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCard( String title, String number, String imagePath ) {
+    return Container(
+      margin: EdgeInsets.only( 
+        bottom: 16.0 
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20.0,
+        vertical: 18.0 
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: Colors.grey!,
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 8.0,
+            offset: Offset(
+              0, 
+              4
+            ),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 70.0,
+            height: 70.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              border: Border.all(
+                color: Colors.grey!,
+                width: 1.0,
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.0),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+                errorBuilder: (context,error,stackTrace) {
+                  return Container(
+                    color: Colors.grey,
+                    child: Icon(
+                      Icons.image_outlined,
+                      color: Colors.grey,
+                      size: 30.0,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 20.0 
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(
+                  height: 6.0 
+                ),
+                Text(
+                  number,
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            Icons.phone_in_talk_outlined,
+            color: Colors.grey,
+            size: 32.0,
+          ),
+        ],
+      ),
+    );
+  }
+}
