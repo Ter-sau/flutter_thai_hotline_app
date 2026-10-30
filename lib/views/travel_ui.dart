@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_thai_hotline_app/utils/phone_launcher.dart';
 
 class TravelUi extends StatefulWidget {
-  const TravelUi({ super.key });
+  const TravelUi({super.key});
 
   @override
   State<TravelUi> createState() => _TravelUiState();
@@ -12,16 +12,14 @@ class TravelUi extends StatefulWidget {
 
 class _TravelUiState extends State<TravelUi> {
   @override
-  Widget build( BuildContext context ) {
-     return Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: 25.0 
-            ),
+            padding: EdgeInsets.symmetric(vertical: 25.0),
             color: Colors.white,
             child: Column(
               children: [
@@ -35,9 +33,7 @@ class _TravelUiState extends State<TravelUi> {
                     height: 1.2,
                   ),
                 ),
-                SizedBox( 
-                  height: 20.0 
-                ),
+                SizedBox(height: 20.0),
                 Container(
                   width: 180.0,
                   height: 180.0,
@@ -49,7 +45,7 @@ class _TravelUiState extends State<TravelUi> {
                     child: Image.asset(
                       'assets/images/travel/travel_0.png',
                       fit: BoxFit.cover,
-                      errorBuilder: ( context, error, stackTrace ) {
+                      errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: Colors.grey[200],
                           child: Icon(
@@ -67,20 +63,49 @@ class _TravelUiState extends State<TravelUi> {
           ),
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20.0, 
-                vertical: 10.0 
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               children: [
-                _buildCard( 'ข้อมูลจราจร', '1197', 'assets/images/travel/travel_1.png'),
-                _buildCard( 'ตำรวจทางหลวง', '1193', 'assets/images/travel/travel_2.png'),
-                _buildCard( 'ตำรวจท่องเที่ยว', '1155', 'assets/images/travel/travel_3.png'),
-                _buildCard( 'เส้นทางบนทางด่วน', '1543', 'assets/images/travel/travel_4.png'),
-                _buildCard( 'ขสมก.', '1348', 'assets/images/travel/travel_5.png'),
-                _buildCard( 'บขส.', '1490', 'assets/images/travel/travel_6.png'),
-                _buildCard( 'เส้นทางบนทางด่วน.', '1543', 'assets/images/travel/travel_7.png'),
-                _buildCard( 'กรมทางหลวง.', '1586', 'assets/images/travel/travel_8.png'),
-                _buildCard( 'การรถไฟเเห่งประเทศไทย.', '1690', 'assets/images/travel/travel_9.png'),
+                _buildCard(
+                  'ข้อมูลจราจร',
+                  '1197',
+                  'assets/images/travel/travel_1.png',
+                ),
+                _buildCard(
+                  'ตำรวจทางหลวง',
+                  '1193',
+                  'assets/images/travel/travel_2.png',
+                ),
+                _buildCard(
+                  'ตำรวจท่องเที่ยว',
+                  '1155',
+                  'assets/images/travel/travel_3.png',
+                ),
+                _buildCard(
+                  'เส้นทางบนทางด่วน',
+                  '1543',
+                  'assets/images/travel/travel_4.png',
+                ),
+                _buildCard(
+                  'ขสมก.',
+                  '1348',
+                  'assets/images/travel/travel_5.png',
+                ),
+                _buildCard('บขส.', '1490', 'assets/images/travel/travel_6.png'),
+                _buildCard(
+                  'เส้นทางบนทางด่วน.',
+                  '1543',
+                  'assets/images/travel/travel_7.png',
+                ),
+                _buildCard(
+                  'กรมทางหลวง.',
+                  '1586',
+                  'assets/images/travel/travel_8.png',
+                ),
+                _buildCard(
+                  'การรถไฟเเห่งประเทศไทย.',
+                  '1690',
+                  'assets/images/travel/travel_9.png',
+                ),
               ],
             ),
           ),
@@ -89,102 +114,84 @@ class _TravelUiState extends State<TravelUi> {
     );
   }
 
-  Widget _buildCard( String title, String number, String imagePath ) {
+  Widget _buildCard(String title, String number, String imagePath) {
     return InkWell(
-      onTap: () => launchPhoneCall( context, number ),
-      borderRadius: BorderRadius.circular( 16.0 ),
+      onTap: () => launchPhoneCall(context, number),
+      borderRadius: BorderRadius.circular(16.0),
       child: Container(
-      margin: EdgeInsets.only( 
-        bottom: 16.0 
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: 20.0,
-        vertical: 18.0 
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.0),
-        border: Border.all(
-          color: Colors.grey[300]!,
-          width: 1.5,
+        margin: EdgeInsets.only(bottom: 16.0),
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 18.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16.0),
+          border: Border.all(color: Colors.grey[300]!, width: 1.5),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              blurRadius: 8.0,
+              offset: Offset(0, 4),
+            ),
+          ],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black,
-            blurRadius: 8.0,
-            offset: Offset(
-              0, 
-              4
-            ),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 70.0,
-            height: 70.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              border: Border.all(
-                color: Colors.grey[300]!,
-                width: 1.0,
+        child: Row(
+          children: [
+            Container(
+              width: 70.0,
+              height: 70.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                border: Border.all(color: Colors.grey[300]!, width: 1.0),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: Colors.grey[100],
+                      child: Icon(
+                        Icons.image_outlined,
+                        color: Colors.grey[500],
+                        size: 30.0,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12.0),
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.cover,
-                errorBuilder: ( context, error, stackTrace ) {
-                  return Container(
-                    color: Colors.grey[100],
-                    child: Icon(
-                      Icons.image_outlined,
-                      color: Colors.grey[500],
-                      size: 30.0,
+            SizedBox(width: 20.0),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                  );
-                },
+                  ),
+                  SizedBox(height: 6.0),
+                  Text(
+                    number,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          SizedBox(
-            width: 20.0 
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(
-                  height: 6.0 
-                ),
-                Text(
-                  number,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ],
+            Icon(
+              Icons.phone_in_talk_outlined,
+              color: Colors.grey[700],
+              size: 32.0,
             ),
-          ),
-          Icon(
-            Icons.phone_in_talk_outlined,
-            color: Colors.grey[700],
-            size: 32.0,
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }
