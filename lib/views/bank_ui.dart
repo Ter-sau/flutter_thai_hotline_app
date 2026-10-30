@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_thai_hotline_app/utils/phone_launcher.dart';
 
 class BankUi extends StatefulWidget {
   const BankUi({ super.key });
@@ -96,7 +97,10 @@ class _BankUiState extends State<BankUi> {
   }
 
   Widget _buildCard( String title, String number, String imagePath ) {
-    return Container(
+    return InkWell(
+      onTap: () => launchPhoneCall( context, number ),
+      borderRadius: BorderRadius.circular( 16.0 ),
+      child: Container(
       margin: EdgeInsets.only( 
         bottom: 16.0 
       ),
@@ -187,6 +191,7 @@ class _BankUiState extends State<BankUi> {
             size: 32.0,
           ),
         ],
+      ),
       ),
     );
   }

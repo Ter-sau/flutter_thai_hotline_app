@@ -56,7 +56,7 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
                           width: screenHeight * 0.20,
                           height: screenHeight * 0.20,
                           color: const Color(0xFFEEEEEE),
-                          child: const Icon(Icons.image_outlined, color: Colors.black54),
+                          child: Icon(Icons.image_outlined, color: Colors.black54),
                         );
                       },
                     ),
